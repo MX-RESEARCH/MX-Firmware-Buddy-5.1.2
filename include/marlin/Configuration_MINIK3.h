@@ -403,13 +403,13 @@
 #define HEATER_3_MAXTEMP 275
 #define HEATER_4_MAXTEMP 275
 #define HEATER_5_MAXTEMP 275
-#define HEATER_MAXTEMP_SAFETY_MARGIN 20
+#define HEATER_MAXTEMP_SAFETY_MARGIN 25
 // Beware: this is the absolute temperature limit.
 // The MINI cannot normally reach 110C.
 // Thus all usage in the UI must be lowered by 10C to offer a valid temperature limit.
 // Those 10C are a safety margin used throughout the whole Marlin code
 // (without a proper #define though :( )
-#define BED_MAXTEMP 110
+#define BED_MAXTEMP 120
 #define BED_MAXTEMP_SAFETY_MARGIN 10
 #define BOARD_MAXTEMP 120
 #define CHAMBER_MAXTEMP 100
@@ -492,9 +492,9 @@
     //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
     //24V Prusa MINI bed
-    #define DEFAULT_bedKp 120.00
-    #define DEFAULT_bedKi 1.50
-    #define DEFAULT_bedKd 600.00
+    #define DEFAULT_bedKp 126.13
+    #define DEFAULT_bedKi 4.30
+    #define DEFAULT_bedKd 924.76
 
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -691,7 +691,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_FEEDRATE \
-    { 180, 180, 12, 80 }
+    { 400, 400, 40, 80 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -864,7 +864,7 @@
  *    (0,0)
  */
 #define NOZZLE_TO_PROBE_OFFSET \
-    { -29, -3, 0 }
+    { -23, -5, 0 }
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 5
@@ -962,9 +962,9 @@
 
 // default values
 #define DEFAULT_INVERT_X_DIR false
-#define DEFAULT_INVERT_Y_DIR false
-#define DEFAULT_INVERT_Z_DIR true
-#define DEFAULT_INVERT_E0_DIR true
+#define DEFAULT_INVERT_Y_DIR true
+#define DEFAULT_INVERT_Z_DIR false
+#define DEFAULT_INVERT_E0_DIR false
 
 #ifdef USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
     //this part if header is accesible only from C++ because of bool
@@ -1008,9 +1008,9 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 180
-#define Y_BED_SIZE 180
-#define Z_SIZE 185
+#define X_BED_SIZE 250
+#define Y_BED_SIZE 210
+#define Z_SIZE 210
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -2
@@ -1019,12 +1019,12 @@
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #ifdef USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
-    #define DEFAULT_Z_MAX_POS 185
+    #define DEFAULT_Z_MAX_POS 210
     #define Z_MIN_LEN_LIMIT 1
     #define Z_MAX_LEN_LIMIT 10000
     #define Z_MAX_POS (get_z_max_pos_mm())
 #else
-    #define Z_MAX_POS 185
+    #define Z_MAX_POS 210
 #endif
 
 /// Distance between start of the axis to the position where ordinary movement is allowed
@@ -1198,7 +1198,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
     // Set the number of grid points per dimension.
-    #define GRID_MAX_POINTS_X 4
+    #define GRID_MAX_POINTS_X 5
     #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
 // Set the boundaries for probing (where the probe can reach).
@@ -1238,8 +1238,8 @@
 
     #define GRID_BORDER 1 // border we are never gonna probe, only border of size 1 is currently supported
     #define GRID_MAJOR_STEP 1 // the offset between major points
-    #define GRID_MAJOR_POINTS_X 4 // number of major probes on the X axis
-    #define GRID_MAJOR_POINTS_Y 4 // number of major probes on the Y axis
+    #define GRID_MAJOR_POINTS_X 5 // number of major probes on the X axis
+    #define GRID_MAJOR_POINTS_Y 5 // number of major probes on the Y axis
     #define GRID_MAX_POINTS_X 6
     #define GRID_MAX_POINTS_Y 6
     //#define GRID_MAX_POINTS_X (GRID_BORDER * 2 + GRID_MAJOR_POINTS_X + ((GRID_MAJOR_POINTS_X - 1) * (GRID_MAJOR_STEP - 1))) // full resolution of the grid (X axis)
@@ -1258,7 +1258,7 @@
 //===========================================================================
 
     #define MESH_INSET 10 // Set Mesh bounds as an inset region of the bed
-    #define GRID_MAX_POINTS_X 3 // Don't use more than 7 points per axis, implementation limited.
+    #define GRID_MAX_POINTS_X 4 // Don't use more than 7 points per axis, implementation limited.
     #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
 //#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS
@@ -1312,7 +1312,7 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-#define MANUAL_X_HOME_POS 180.4
+#define MANUAL_X_HOME_POS 253
 //#define MANUAL_Y_HOME_POS 0
 //#define MANUAL_Z_HOME_POS 0
 
@@ -1328,13 +1328,13 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-    #define Z_SAFE_HOMING_X_POINT (147.4) // X point for Z homing when homing all axes (G28).
-    #define Z_SAFE_HOMING_Y_POINT (21.1) // Y point for Z homing when homing all axes (G28).
+    #define Z_SAFE_HOMING_X_POINT (221) // X point for Z homing when homing all axes (G28).
+    #define Z_SAFE_HOMING_Y_POINT (-2) // Y point for Z homing when homing all axes (G28).
 #endif
 
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (3000)
-#define HOMING_FEEDRATE_Z (6 * 60)
+#define HOMING_FEEDRATE_Z (10 * 60)
 #define HOMING_FEEDRATE_INVERTED_Z (30 * 60)
 
 // Validate that endstops are triggered on homing moves

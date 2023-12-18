@@ -227,7 +227,7 @@
 // then extrude some filament every couple of SECONDS.
 //#define EXTRUDER_RUNOUT_PREVENT
 #if ENABLED(EXTRUDER_RUNOUT_PREVENT)
-    #define EXTRUDER_RUNOUT_MINTEMP 190
+    #define EXTRUDER_RUNOUT_MINTEMP 180
     #define EXTRUDER_RUNOUT_SECONDS 30
     #define EXTRUDER_RUNOUT_SPEED 1500 // (mm/m)
     #define EXTRUDER_RUNOUT_EXTRUDE 5 // (mm)
@@ -1388,7 +1388,7 @@
 // This short retract is done immediately, before parking the nozzle.
     #define FILAMENT_CHANGE_UNLOAD_FEEDRATE 80 // (mm/s) Unload filament feedrate. This can be pretty fast.
     #define FILAMENT_CHANGE_UNLOAD_ACCEL 1250 // (mm/s^2) Lower acceleration may allow a faster feedrate.
-    #define FILAMENT_CHANGE_UNLOAD_LENGTH 430 // (mm) The length of filament for a complete unload.
+    #define FILAMENT_CHANGE_UNLOAD_LENGTH 120 // (mm) The length of filament for a complete unload.
 //   For Bowden, the full length of the tube and nozzle.
 //   For direct drive, the full length of the nozzle.
 //   Set to 0 for manual unloading.
@@ -1397,24 +1397,24 @@
 // 0 to disable start loading and skip to fast load only
     #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE 80 // (mm/s) Load filament feedrate. This can be pretty fast.
     #define FILAMENT_CHANGE_FAST_LOAD_ACCEL 625 // (mm/s^2) Lower acceleration may allow a faster feedrate.
-    #define FILAMENT_CHANGE_FAST_LOAD_LENGTH 320 // (mm) Load length of filament, from extruder gear to nozzle.
+    #define FILAMENT_CHANGE_FAST_LOAD_LENGTH 50 // (mm) Load length of filament, from extruder gear to nozzle.
 //   For Bowden, the full length of the tube and nozzle.
 //   For direct drive, the full length of the nozzle.
 //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
     #define ADVANCED_PAUSE_PURGE_FEEDRATE 3 // (mm/s) Extrude feedrate (after loading). Should be slower than load feedrate.
-    #define ADVANCED_PAUSE_PURGE_LENGTH 50 // (mm) Length to extrude after loading.
+    #define ADVANCED_PAUSE_PURGE_LENGTH 15 // (mm) Length to extrude after loading.
 //   Set to 0 for manual extrusion.
 //   Filament can be extruded repeatedly from the Filament Change menu
 //   until extrusion is consistent, and to purge old filament.
     #define ADVANCED_PAUSE_RESUME_PRIME 0 // (mm) Extra distance to prime nozzle after returning from park.
 
 // Filament Unload does a Retract, Delay, and Purge first:
-    #define FILAMENT_UNLOAD_RETRACT_LENGTH 30 // (mm) Unload initial retract length.
+    #define FILAMENT_UNLOAD_RETRACT_LENGTH 10 // (mm) Unload initial retract length.
     #define FILAMENT_UNLOAD_DELAY 5000 // (ms) Delay for the filament to cool after retract.
-    #define FILAMENT_UNLOAD_PURGE_LENGTH 16 // (mm) An unretract is done, then this length is purged.
+    #define FILAMENT_UNLOAD_PURGE_LENGTH 0 // (mm) An unretract is done, then this length is purged.
     #define FILAMENT_UNLOAD_PURGE_FEEDRATE 66 // (mm/s)
-    #define FILAMENT_UNLOAD_PHASE1_LENGHT 35 // (mm)fast phase
-    #define FILAMENT_UNLOAD_PHASE2_LENGHT 45 // (mm)slow phase
+    #define FILAMENT_UNLOAD_PHASE1_LENGHT 5 // (mm)fast phase
+    #define FILAMENT_UNLOAD_PHASE2_LENGHT 20 // (mm)slow phase
 
     #define PAUSE_PARK_NOZZLE_TIMEOUT 45 // (seconds) Time limit before the nozzle is turned off for safety.
     #define FILAMENT_CHANGE_ALERT_BEEPS 10 // Number of alert beeps to play when a response is needed.
@@ -1541,7 +1541,7 @@
     #define INTERPOLATE true // Interpolate X/Y/Z_MICROSTEPS to 256
 
     #if AXIS_IS_TMC(X)
-        #define X_CURRENT 350 // (mA) RMS current. Multiply by 1.414 for peak current.
+        #define X_CURRENT 300 // (mA) RMS current. Multiply by 1.414 for peak current.
         #define X_MICROSTEPS 16 // 0..256
         #define X_RSENSE 0.22
     #endif
@@ -1553,7 +1553,7 @@
     #endif
 
     #if AXIS_IS_TMC(Y)
-        #define Y_CURRENT 350
+        #define Y_CURRENT 370
         #define Y_MICROSTEPS 16
         #define Y_RSENSE 0.22
     #endif
@@ -1566,7 +1566,7 @@
 
     #if AXIS_IS_TMC(Z)
         #define Z_CURRENT 350 //530//650
-        #define Z_MICROSTEPS 8 //16
+        #define Z_MICROSTEPS 16 //16
         #define Z_RSENSE 0.22
     #endif
 
@@ -1583,7 +1583,7 @@
     #endif
 
     #if AXIS_IS_TMC(E0)
-        #define E0_CURRENT 400 //520
+        #define E0_CURRENT 450 //520
         #define E0_MICROSTEPS 16 //32
         #define E0_RSENSE 0.22
     #endif

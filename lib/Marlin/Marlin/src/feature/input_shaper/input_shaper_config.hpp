@@ -66,7 +66,7 @@ inline constexpr AxisConfig axis_x_default {
 
     .type = Type::mzv,
 #if PRINTER_IS_PRUSA_MINI
-    .frequency = 118.2,
+    .frequency = 35.8,
 #elif PRINTER_IS_PRUSA_XL
     .frequency = 35.8,
 #else
@@ -80,7 +80,7 @@ inline constexpr AxisConfig axis_y_default {
 
     .type = Type::mzv,
 #if PRINTER_IS_PRUSA_MINI
-    .frequency = 32.8,
+    .frequency = 35.8,
 #elif PRINTER_IS_PRUSA_XL
     .frequency = 35.4,
 #else
