@@ -691,7 +691,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_FEEDRATE \
-    { 180, 180, 12, 80 }
+    { 400, 400, 12, 80 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
