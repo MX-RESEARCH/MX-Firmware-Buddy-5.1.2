@@ -8,9 +8,9 @@
 #include <cstdint>
 
 // axis length [mm]
-inline constexpr uint8_t X_LEN = 184;
-inline constexpr uint8_t Y_LEN = 183;
-inline constexpr uint8_t Z_LEN = 186;
+inline constexpr uint8_t X_LEN = 253;
+inline constexpr uint8_t Y_LEN = 217;
+inline constexpr uint8_t Z_LEN = 210;
 
 // tolerance (common for all axes)
 inline constexpr uint8_t LEN_TOL_ABS = 15; // length absolute tolerance (+-5mm)

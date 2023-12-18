@@ -5,7 +5,7 @@
 #include "config.h"
 
 #if PRINTER_IS_PRUSA_MINI
-    #include "Configuration_MINI_adv.h"
+    #include "Configuration_MINIK3_adv.h"
 #elif PRINTER_IS_PRUSA_XL && BOARD_IS_XLBUDDY
     #include "Configuration_XL_adv.h"
 #elif PRINTER_IS_PRUSA_XL && BOARD_IS_DWARF
