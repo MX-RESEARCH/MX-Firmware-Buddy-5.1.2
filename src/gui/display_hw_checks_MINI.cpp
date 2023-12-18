@@ -18,7 +18,7 @@ void check_lcd() {
     display::ReadMADCTL(data_buff);
 
     if ((data_buff[1] != 0xE0 && data_buff[1] != 0xF0 && data_buff[1] != 0xF8)) {
-        reinit_lcd_and_redraw();
+        // reinit_lcd_and_redraw();
     }
 }
 } // anonymous namespace

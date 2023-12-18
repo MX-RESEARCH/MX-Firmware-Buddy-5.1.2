@@ -102,7 +102,7 @@ inline constexpr ErrDesc error_list[] = {{{list_items}
 """
 
 def generate_header_file(yaml_file_name, header_file_name, mmu, list, includes):
-    with open(yaml_file_name, "r") as yaml_file:
+    with open(yaml_file_name, "r", encoding='utf-8') as yaml_file:
         parsed_file = yaml.safe_load(yaml_file)
 
         printer_code = None
