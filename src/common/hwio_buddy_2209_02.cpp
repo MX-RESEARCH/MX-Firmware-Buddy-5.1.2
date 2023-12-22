@@ -645,7 +645,7 @@ void digitalWrite(uint32_t marlinPin, uint32_t ulVal) {
 #elif PRINTER_IS_PRUSA_MK3_5
         Fans::heat_break(0).setPWM(ulVal ? _pwm_analogWrite_max : 0);
 #else
-        Fans::heat_break(0).setPWM(ulVal ? 127 : 0);
+        Fans::heat_break(0).setPWM(ulVal ? 150 : 0);
 #endif
         return;
     case MARLIN_PIN(FAN):
