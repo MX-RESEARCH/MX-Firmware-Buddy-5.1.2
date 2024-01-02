@@ -492,9 +492,9 @@
     //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
     //24V Prusa MINI bed
-    #define DEFAULT_bedKp 32.29
-    #define DEFAULT_bedKi 0.97
-    #define DEFAULT_bedKd 714.73
+    #define DEFAULT_bedKp 120.00
+    #define DEFAULT_bedKi 1.50
+    #define DEFAULT_bedKd 600.00
 
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
