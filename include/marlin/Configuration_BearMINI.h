@@ -436,9 +436,9 @@
 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
     // Prusa MINI
-	#define DEFAULT_Kp 24.25
-	#define DEFAULT_Ki 2.61
-	#define DEFAULT_Kd 56.25
+    #define DEFAULT_Kp 7.00
+    #define DEFAULT_Ki 0.50
+    #define DEFAULT_Kd 45.00
 
     #define STEADY_STATE_HOTEND // Enable support for STEADY_STATE_HOTEND (feed-forward thermal management)
     #define STEADY_STATE_HOTEND_LINEAR_COOLING_TERM 0.422
@@ -492,9 +492,9 @@
     //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
     //24V Prusa MINI bed
-    #define DEFAULT_bedKp 32.29
-    #define DEFAULT_bedKi 0.97
-    #define DEFAULT_bedKd 714.73
+    #define DEFAULT_bedKp 120.00
+    #define DEFAULT_bedKi 1.50
+    #define DEFAULT_bedKd 600.00
 
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
