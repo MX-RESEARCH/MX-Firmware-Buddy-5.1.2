@@ -1010,21 +1010,21 @@
 // The size of the print bed
 #define X_BED_SIZE 250
 #define Y_BED_SIZE 210
-#define Z_SIZE 210
+#define Z_SIZE 215
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -2
-#define Y_MIN_POS -3
+#define X_MIN_POS -8
+#define Y_MIN_POS -4
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
 #ifdef USE_PRUSA_EEPROM_AS_SOURCE_OF_DEFAULT_VALUES
-    #define DEFAULT_Z_MAX_POS 210
+    #define DEFAULT_Z_MAX_POS 215
     #define Z_MIN_LEN_LIMIT 1
     #define Z_MAX_LEN_LIMIT 10000
     #define Z_MAX_POS (get_z_max_pos_mm())
 #else
-    #define Z_MAX_POS 210
+    #define Z_MAX_POS 215
 #endif
 
 /// Distance between start of the axis to the position where ordinary movement is allowed
@@ -1480,13 +1480,13 @@
     #define Y_AXIS_LOAD_POS    (std::numeric_limits<float>::quiet_NaN())
     #define Y_AXIS_UNLOAD_POS  (std::numeric_limits<float>::quiet_NaN())
     // homing to this pos makes PTFE tube last longer
-    #define X_AXIS_LOAD_POS  ((X_MAX_POS) / 4)
-    #define X_AXIS_UNLOAD_POS  ((X_MAX_POS) / 4)
+    #define X_AXIS_LOAD_POS  ((X_MAX_POS) - 30)
+    #define X_AXIS_UNLOAD_POS  ((X_MAX_POS) -30)
     // Specify a park position as { X, Y, Z }
     #define NOZZLE_PARK_POINT \
         { (X_MAX_POS - 10), (Y_MAX_POS - 10), 20 }
         #define NOZZLE_PARK_POINT_M600 \
-        {(X_MIN_POS + 10), (Y_MIN_POS + 10), 20 }
+        {(X_MAX_POS - 10), (Y_MIN_POS + 10), 20 }
     #define NOZZLE_PARK_XY_FEEDRATE 100 // (mm/s) X and Y axes feedrate (also used for delta Z axis)
     #define NOZZLE_UNPARK_XY_FEEDRATE 30 // (mm/s) X and Y axes feedrate for unparking after m600
     #define NOZZLE_PARK_Z_FEEDRATE 5 // (mm/s) Z axis feedrate (not used for delta printers)
