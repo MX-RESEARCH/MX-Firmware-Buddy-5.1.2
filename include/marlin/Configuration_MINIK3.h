@@ -437,8 +437,8 @@
 
     // Prusa MINI
     #define  DEFAULT_Kp 20.22
-    #define  DEFAULT_Ki 2.07
-    #define  DEFAULT_Kd 49.35
+    #define  DEFAULT_Ki 1.73
+    #define  DEFAULT_Kd 59.05
 
     #define STEADY_STATE_HOTEND // Enable support for STEADY_STATE_HOTEND (feed-forward thermal management)
     #define STEADY_STATE_HOTEND_LINEAR_COOLING_TERM 0.422
@@ -492,9 +492,17 @@
     //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
     //24V Prusa MINI bed
-    #define DEFAULT_bedKp 126.13
-    #define DEFAULT_bedKi 4.30
-    #define DEFAULT_bedKd 924.76
+    //#define DEFAULT_bedKp 120.00
+    //#define DEFAULT_bedKi 1.50
+    //#define DEFAULT_bedKd 600.00
+
+    //24V Prusa MK52 bed
+    //#define DEFAULT_bedKp 126.13
+    //#define DEFAULT_bedKi 4.30
+    //#define DEFAULT_bedKd 924.76
+    #define DEFAULT_bedKp 40.29
+    #define DEFAULT_bedKi 1.86
+    #define DEFAULT_bedKd 582.33
 
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
